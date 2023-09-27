@@ -1,0 +1,12 @@
+﻿@page "/app"
+
+<MudContainer MaxWidth="MaxWidth.Large">
+    <MudGrid>
+        <MudItem lg="6">
+            <PointsChart @rendermode="@(new WebAssemblyRenderMode(prerender: false))" />
+        </MudItem>
+        <MudItem lg="6">
+            <CumulativeChart @rendermode="@(new WebAssemblyRenderMode(prerender: false))" />
+        </MudItem>
+    </MudGrid>
+</MudContainer>

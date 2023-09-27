@@ -1,0 +1,28 @@
+﻿@inject HttpClient HttpClient
+
+<MudChart ChartType="ChartType.Line" ChartSeries="Series" Width="100%" Height="300px"></MudChart>
+
+@code {
+    private List<ChartSeries> Series = new List<ChartSeries>()
+    {
+        new ChartSeries()
+        {
+            Name = "Data",
+            Data = new double[10]
+        }
+    };
+
+    protected override async Task OnInitializedAsync()
+    {
+        var result = await HttpClient.GetFromJsonAsync<IEnumerable<int>>("/api/dashboard/cumulative");
+
+        Series = new List<ChartSeries>()
+    {
+        new ChartSeries()
+        {
+            Name = "Data",
+            Data = result.Select(x => (double)x).ToArray()
+        }
+    };
+    }
+}

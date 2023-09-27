@@ -1,0 +1,14 @@
+﻿@inherits LayoutComponentBase
+
+<MudThemeProvider />
+
+<MudLayout>
+    <MudAppBar>
+        Blazor Demo
+        <MudSpacer />
+        <SectionOutlet SectionName="top-menu" />
+        </MudAppBar>
+        <MudMainContent>
+            @Body
+        </MudMainContent>
+</MudLayout>
